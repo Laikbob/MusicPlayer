@@ -1,18 +1,26 @@
+using CommunityToolkit.Maui.Core.Views; 
+
 namespace MusicPlayer;
 
 public partial class Player : ContentPage
 {
-	public Player()
-	{
-		InitializeComponent();
-		MusicButton.Clicked += PlayMusic;
+    public Player()
+    {
+        InitializeComponent();
+        MusicButton.Clicked += MusicButton_Clicked;
     }
-	private void PlayMusic(object sender, EventArgs e)
-	{
-        // Code to play music
-    }
-	private void MusicButton_Clicked(object sender, EventArgs e)
-	{
-        // Code to handle music button click
+
+    private void MusicButton_Clicked(object sender, EventArgs e)
+    {
+        if (MusicPlayer.CurrentState == MediaElementState.Playing)
+        {
+            MusicPlayer.Pause();
+            MusicButton.Text = "Play";
+        }
+        else
+        {
+            MusicPlayer.Play();
+            MusicButton.Text = "Pause";
+        }
     }
 }

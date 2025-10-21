@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MusicPlayer.Player"
              Title="Player">
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="20" Spacing="20">
+
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+
             <Label 
                 Text="Now Playing"
                 FontSize="24"
                 HorizontalOptions="Center"
                 Grid.Row="0"/>
+
             <Image 
                 Source="album_art_placeholder.png"
                 Aspect="AspectFill"
@@ -26,15 +32,26 @@
                 WidthRequest="300"
                 HorizontalOptions="Center"
                 Grid.Row="1"/>
+
             <StackLayout 
                 Orientation="Horizontal" 
                 HorizontalOptions="Center"
                 Grid.Row="2"
                 Margin="0,20,0,0">
                 <Button Text="⏮️" WidthRequest="60" HeightRequest="60"/>
-                <Button Text="▶️" WidthRequest="60" HeightRequest="60" Margin="20,0"/>
+                <Button Text="⏸️" WidthRequest="60" HeightRequest="60" Margin="20,0"/>
                 <Button Text="⏭️" WidthRequest="60" HeightRequest="60"/>
             </StackLayout>
+
+            <!-- Кнопка Play/Pause -->
+            <Button
+                x:Name="MusicButton"
+                Text="Play"
+                Grid.Row="3"
+                HorizontalOptions="Center"
+                Margin="0,10,0,0"/>
+
         </Grid>
+
     </VerticalStackLayout>
 </ContentPage>
