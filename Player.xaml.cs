@@ -1,4 +1,4 @@
-using CommunityToolkit.Maui.Core.Views; 
+using CommunityToolkit.Maui.Core.Extensions;
 
 namespace MusicPlayer;
 
