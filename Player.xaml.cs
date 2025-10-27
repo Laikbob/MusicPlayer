@@ -127,7 +127,7 @@ public partial class Player : ContentPage
         currentTrackIndex = (currentTrackIndex + 1) % tracks.Count;
         PlayTrack(currentTrackIndex);
     }
-
+    //
     private void PrevButton_Clicked(object sender, EventArgs e)
     {
         if (tracks.Count == 0) return;
