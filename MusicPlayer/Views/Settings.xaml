@@ -1,0 +1,77 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:MusicPlayer.Helpers"
+             x:Class="MusicPlayer.Views.Settings"
+             Title="{helpers:Translate Text=Button_Settings}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="24">
+
+            <!-- Language -->
+            <Label Text="{helpers:Translate Text=ChooseLanguageLabel}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,10,0,0"
+                   TextColor="{DynamicResource TextColor}" />
+
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Spacing="16"
+                                   Margin="0,0,0,10">
+                <Button Text="🇪🇪 Eesti"
+                        Clicked="OnLanguageClicked"
+                        CommandParameter="et"
+                        BackgroundColor="{DynamicResource AccentColor}"
+                        TextColor="{DynamicResource SurfaceColor}"
+                        FontSize="20"
+                        CornerRadius="12"
+                        Padding="14,8" />
+                <Button Text="🇬🇧 English"
+                        Clicked="OnLanguageClicked"
+                        CommandParameter="en"
+                        BackgroundColor="{DynamicResource AccentColor}"
+                        TextColor="{DynamicResource SurfaceColor}"
+                        FontSize="20"
+                        CornerRadius="12"
+                        Padding="14,8" />
+            </HorizontalStackLayout>
+
+            <!-- Theme -->
+            <Label Text="{helpers:Translate Text=ChooseThemeLabel}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource TextColor}" />
+
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto" HorizontalOptions="Center">
+
+                <!-- Dark Theme -->
+                <Button x:Name="BtnDarkTheme" Grid.Column="0"
+                        Text="Dark"
+                        Clicked="OnDarkClicked"
+                        WidthRequest="100" HeightRequest="100"
+                        CornerRadius="16"
+                        BackgroundColor="Transparent" />
+
+                <!-- Light Theme -->
+                <Button x:Name="BtnLightTheme" Grid.Column="1"
+                        Text="Light"
+                        Clicked="OnLightClicked"
+                        WidthRequest="100" HeightRequest="100"
+                        CornerRadius="16"
+                        BackgroundColor="Transparent" />
+
+                <!-- Halloween Theme -->
+                <Button x:Name="BtnHalloweenTheme" Grid.Column="2"
+                        Text="Halloween"
+                        Clicked="OnHalloweenClicked"
+                        WidthRequest="100" HeightRequest="100"
+                        CornerRadius="16"
+                        BackgroundColor="Transparent" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:MusicPlayer.Helpers"
+             x:Class="MusicPlayer.Views.MainPage"
+             x:Name="rootPage"
+             Title="{helpers:Translate Text=Music Player}"
+             BackgroundColor="Transparent">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:BoolToPlayPauseTextConverter x:Key="BoolToPlayPauseTextConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <!-- Background Image with fade animation -->
+        <Image x:Name="BackgroundImage"
+               Source="{DynamicResource BackgroundImage}"
+               Aspect="AspectFill"
+               Opacity="0.5"
+               InputTransparent="True"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+
+        <!-- Overlay content -->
+        <ScrollView>
+            <VerticalStackLayout Padding="12" Spacing="12">
+
+                <!-- Header -->
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center" Margin="0">
+                    <Label Text="{helpers:Translate Text=Title}"
+                           FontAttributes="Bold"
+                           FontSize="22"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource TextColor}" />
+                </Grid>
+
+                <!-- Buttons -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                    <Button Text="{helpers:Translate Text=Button_AddFile}"
+                            Clicked="OnAddFileClicked"
+                            BackgroundColor="{DynamicResource PrimaryColor}"
+                            TextColor="{DynamicResource SurfaceColor}"
+                            CornerRadius="10" Padding="10,6"
+                            FontSize="17"
+                            FontFamily="Goldoni"/>
+                    <Button Text="{helpers:Translate Text=Button_Refresh}"
+                            Clicked="OnRefreshClicked"
+                            BackgroundColor="{DynamicResource PrimaryColor}"
+                            TextColor="{DynamicResource SurfaceColor}"
+                            CornerRadius="10" Padding="10,6"
+                            FontSize="17"
+                            FontFamily="Goldoni"/>
+                    <Button Text="{helpers:Translate Text=Button_Settings}"
+                            Clicked="OnOpenSettingsClicked"
+                            BackgroundColor="{DynamicResource PrimaryColor}"
+                            TextColor="{DynamicResource SurfaceColor}"
+                            CornerRadius="10" Padding="10,6"
+                            FontSize="17"
+                            FontFamily="Goldoni"/>
+                </HorizontalStackLayout>
+
+                <!-- Tracks CollectionView -->
+                <CollectionView ItemsSource="{Binding Tracks}" SelectionMode="None" Margin="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" Margin="6" CornerRadius="10"
+                                   BackgroundColor="{DynamicResource SurfaceColor}"
+                                   HasShadow="True">
+                                <Grid ColumnDefinitions="*,Auto,Auto" VerticalOptions="Center">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Title}"
+                                           VerticalOptions="Center"
+                                           TextColor="{DynamicResource TextColor}" />
+                                    <Button Grid.Column="1" Text="▶️"
+                                            Command="{Binding BindingContext.PlayCommand, Source={x:Reference rootPage}}"
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="Transparent"
+                                            TextColor="{DynamicResource PrimaryColor}"
+                                            Padding="6"/>
+                                    <Button Grid.Column="2" Text="🗑️"
+                                            Command="{Binding BindingContext.DeleteCommand, Source={x:Reference rootPage}}"
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="Transparent"
+                                            TextColor="DarkGray"
+                                            Padding="6"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Now Playing -->
+                <Label Text="{Binding CurrentTrackTitle}"
+                       HorizontalOptions="Center"
+                       FontSize="19"
+                       TextColor="{DynamicResource TextColor}"
+                       FontAttributes="Bold"/>
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <Slider x:Name="TrackSlider"
+                        Minimum="0" Maximum="1"
+                        Value="{Binding Progress, Mode=TwoWay}"
+                        DragStarted="OnSliderDragStarted"
+                        DragCompleted="OnSliderDragCompleted"
+                        ValueChanged="TrackSlider_ValueChanged" />
+                    <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End">
+                        <Label Text="{Binding PositionText}" FontSize="14" HorizontalOptions="End" TextColor="{DynamicResource TextColor}"/>
+                        <Label Text="{Binding DurationText}" FontSize="14" HorizontalOptions="End" TextColor="{DynamicResource TextColor}"/>
+                    </StackLayout>
+                </Grid>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+                    <Button Text="{Binding IsPlaying, Converter={StaticResource BoolToPlayPauseTextConverter}}"
+                            Command="{Binding PlayPauseCommand}"
+                            FontFamily="Goldoni"
+                            BackgroundColor="{DynamicResource PrimaryColor}"
+                            TextColor="{DynamicResource SurfaceColor}"
+                            CornerRadius="10" Padding="10,6" WidthRequest="140"
+                            FontSize="25"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="{Binding KbpsText}" FontSize="21" FontFamily="Goldoni" HorizontalOptions="Center"
+                           Padding="153,6" TextColor="{DynamicResource TextColor}"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

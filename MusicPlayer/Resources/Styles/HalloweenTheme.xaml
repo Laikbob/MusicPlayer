@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MusicPlayer.Resources.Styles.HalloweenTheme">
+
+    <FileImageSource x:Key="BackgroundImage" File="halloween_background.jpg"/>
+
+    <Color x:Key="BackgroundColor">#1A0B0B</Color>
+    <Color x:Key="SurfaceColor">#2C1B13</Color>
+    <Color x:Key="PrimaryColor">#FF6F00</Color>
+    <Color x:Key="AccentColor">#FF9100</Color>
+    <Color x:Key="TextColor">#FFF3E0</Color>
+
+    <Style x:Key="TitleLabelStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontFamily" Value="AboveDemo"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="AboveDemo"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="12,8" />
+    </Style>
+
+    <Style x:Key="CardFrameStyle" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceColor}" />
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="HasShadow" Value="True"/>
+        <Setter Property="Margin" Value="6"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+
+</ResourceDictionary>
