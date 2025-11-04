@@ -2,7 +2,7 @@
 
 MusicPlayer on .NET MAUI abil loodud multimeediarakendus, mis demonstreerib minu oskusi mobiilirakenduste arenduses. Rakendus võimaldab muusikat esitada, hallata ja isikupärastada kuulamiskogemust mitmete kasulike funktsioonidega.
 
-🚀 Eesmärk
+<h2>🚀 Eesmärk</h2>
 
 Projekti eesmärk on näidata praktilist teadmist:
 
@@ -14,7 +14,7 @@ Andmebaaside ja seadme API-de integreerimisest
 
 Mitmekeelsuse ja teema muutmise rakendamisest
 
-🎧 Funktsioonid
+<h2>🎧 Funktsioonid</h2>
 
 ▶️ Helifailide esitamine
 
@@ -30,7 +30,7 @@ Mitmekeelsuse ja teema muutmise rakendamisest
 
 ⏩ Seek-funktsioon – muusika kerimine
 
-🧩 Kasutatud tehnoloogiad
+<h2>🧩 Kasutatud tehnoloogiad</h2>
 
 .NET MAUI
 
@@ -44,7 +44,7 @@ Preferences API
 
 .resx lokaliseerimine
 
-🛠 Staatus
+<h2>🛠 Staatus</h2>
 
 ✅ Töötavad funktsioonid:
 
