@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace MusicPlayer.ViewModels
 {
+    //привязкой данных и уведомлением об изменении свойств.
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

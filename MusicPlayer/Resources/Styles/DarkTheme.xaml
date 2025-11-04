@@ -10,7 +10,7 @@
     <Color x:Key="SurfaceColor">#1E1E1E</Color>
     <Color x:Key="PrimaryColor">#BB86FC</Color>
     <Color x:Key="AccentColor">#03DAC5</Color>
-    <Color x:Key="TextColor">#FFFFFF</Color>
+    <Color x:Key="TextColor">#D3D3D3</Color>
 
     <Style x:Key="TitleLabelStyle" TargetType="Label">
         <Setter Property="FontAttributes" Value="Bold"/>

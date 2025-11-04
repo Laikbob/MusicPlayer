@@ -14,7 +14,7 @@ namespace MusicPlayer.Services
         public event EventHandler LanguageChanged;
 
         private LocalizationResourceManager() { }
-
+        //переведённые строки по ключу
         public string this[string text]
         {
             get
