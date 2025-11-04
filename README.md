@@ -1,4 +1,4 @@
-🎵 MusicPlayer
+<h1>🎵 MusicPlayer</h1>
 
 MusicPlayer on .NET MAUI abil loodud multimeediarakendus, mis demonstreerib minu oskusi mobiilirakenduste arenduses. Rakendus võimaldab muusikat esitada, hallata ja isikupärastada kuulamiskogemust mitmete kasulike funktsioonidega.
 
